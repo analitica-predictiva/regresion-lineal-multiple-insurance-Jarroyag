@@ -24,10 +24,10 @@ def pregunta_01():
     y = df["charges"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X= df
+    X = df
 
     # Remueva la columna `charges` del DataFrame `X`.
-    X.drop("charges", inplace = True, axis=1)
+    X.drop("charges", inplace= True, axis=1)
 
     # Retorne `X` y `y`
     return X, y
@@ -64,8 +64,8 @@ def pregunta_03():
     -------------------------------------------------------------------------------------
     """
 
-    # Importe make_column_selector
-    # Importe make_column_transformer
+    #Importe make_column_selector
+    #Importe make_column_transformer
     # Importe SelectKBest
     # Importe f_regression
     # Importe LinearRegression
@@ -85,7 +85,7 @@ def pregunta_03():
         steps=[
             # Paso 1: Construya un column_transformer que aplica OneHotEncoder a las
             # variables categóricas, y no aplica ninguna transformación al resto de
-            #las variables.
+            # las variables.
             (
                 "column_transfomer",
                 make_column_transformer(
@@ -100,7 +100,7 @@ def pregunta_03():
             # características más importantes. Utilice la función f_regression.
             (
                 "selectKBest",
-                SelectKBest(score_func=f_regression),
+                SelectKBest(score_func= f_regression),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
@@ -111,12 +111,12 @@ def pregunta_03():
     )
 
     # Cargua de las variables.
-    X_train, X_test, y_train, y_test= pregunta_02()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "selectKbest_k": (1,11),
+        "selectkbest_k":(1,11),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
