@@ -104,7 +104,7 @@ def pregunta_03():
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "regre_L",
+                "linear_regression",
                 LinearRegression(),
             ),
         ],
