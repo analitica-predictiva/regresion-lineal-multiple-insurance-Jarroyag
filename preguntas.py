@@ -21,13 +21,13 @@ def pregunta_01():
     df = pd.read_csv("insurance.csv")
 
     # Asigne la columna `charges` a la variable `y`.
-    y = df["charges"]
+    y = df["charges"].values
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X = df
+    X = df.copy()
 
     # Remueva la columna `charges` del DataFrame `X`.
-    X.drop("charges", inplace= True, axis=1)
+    X.drop("charges", axis=1, inplace=True)
 
     # Retorne `X` y `y`
     return X, y
@@ -39,7 +39,7 @@ def pregunta_02():
     -------------------------------------------------------------------------------------
     """
 
-    # Importe train_test_split
+    # Importar train_test_split
     from sklearn.model_selection import train_test_split
 
     # Cargue los datos y asigne los resultados a `X` y `y`.
@@ -64,21 +64,28 @@ def pregunta_03():
     -------------------------------------------------------------------------------------
     """
 
-    #Importe make_column_selector
-    #Importe make_column_transformer
-    # Importe SelectKBest
-    # Importe f_regression
-    # Importe LinearRegression
-    # Importe GridSearchCV
-    # Importe Pipeline
-    # Importe OneHotEncoder
+    # Importe make_column_selector
     from sklearn.compose import make_column_selector
+
+    # Importe make_column_transformer
     from sklearn.compose import make_column_transformer
+
+    # Importe SelectKBest
     from sklearn.feature_selection import SelectKBest
+
+    # Importe f_regression
     from sklearn.feature_selection import f_regression
+
+    # Importe LinearRegression
     from sklearn.linear_model import LinearRegression
+
+    # Importe GridSearchCV
     from sklearn.model_selection import GridSearchCV
+
+    # Importe Pipeline
     from sklearn.pipeline import Pipeline
+
+    # Importe OneHotEncoder
     from sklearn.preprocessing import OneHotEncoder
 
     pipeline = Pipeline(
@@ -115,8 +122,9 @@ def pregunta_03():
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
+
     param_grid = {
-        "selectkbest_k":range(1,12),
+        "selectKBest__k": range(1, 12),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
