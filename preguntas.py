@@ -151,7 +151,7 @@ def pregunta_04():
     gridSearchCV = pregunta_03()
 
     # Cargue las variables.
-    X_train, X_test, y_train, y_test = pregunta_03()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Evalúe el modelo con los conjuntos de entrenamiento y prueba.
     y_train_pred = gridSearchCV.predict(X_train)
